@@ -1,161 +1,548 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhi Trader - Share Market Education Maharashtra</title>
 
-<title>Trading Community</title>
+    <!-- META PIXEL TRACKING CODE -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      
+      fbq('init', '1810300683647290'); 
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=1810300683647290&ev=PageView&noscript=1"/>
+    </noscript>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}
-(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
-fbq('init', '2027397264819185');
-fbq('track', 'PageView');
-fbq('track', 'ViewContent');
-</script>
+        body {
+            background: linear-gradient(180deg, #020b18 0%, #051329 50%, #01060e 100%);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px 10px;
+        }
 
-<style>
-body{
-margin:0;
-font-family:Arial;
-text-align:center;
-color:white;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-}
+        .main-card {
+            width: 100%;
+            max-width: 410px;
+            background: rgba(10, 22, 40, 0.85);
+            border: 1px solid rgba(0, 180, 216, 0.25);
+            border-radius: 28px;
+            padding: 20px 16px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 180, 216, 0.08);
+            backdrop-filter: blur(10px);
+        }
 
-/* TOP BAR */
-.topbar{
-background:#ffd700;
-color:#000;
-padding:12px;
-font-weight:900;
-font-size:17px;
-}
+        /* Top Badge */
+        .top-badge-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
 
-/* PROFILE */
-.profile{
-margin-top:25px;
-}
-.profile img{
-width:130px;
-height:130px;
-border-radius:50%;
-border:5px solid #ffd700;
-}
+        .top-badge {
+            background: rgba(0, 150, 255, 0.12);
+            border: 1px solid rgba(0, 180, 216, 0.35);
+            border-radius: 30px;
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #00d2ff;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-/* TEXT */
-.title{
-font-size:24px;
-font-weight:900;
-margin-top:10px;
-color:#ffd700;
-}
-.subtitle{
-font-size:16px;
-font-weight:700;
-}
-.counter{
-margin-top:8px;
-font-weight:700;
-}
+        /* Profile Section */
+        .profile-wrapper {
+            position: relative;
+            width: 125px;
+            height: 125px;
+            margin: 0 auto 14px auto;
+        }
 
-/* BOX */
-.box{
-background:rgba(0,0,0,0.4);
-margin:12px 20px;
-padding:12px;
-border-radius:10px;
-font-weight:700;
-}
+        .profile-img-box {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #00b4d8;
+            box-shadow: 0 0 25px rgba(0, 180, 216, 0.5);
+            overflow: hidden;
+            background-color: #081220;
+        }
 
-/* BUTTON */
-.join-btn{
-background:#ffd700;
-color:#000;
-padding:16px;
-margin:20px;
-border-radius:12px;
-font-size:18px;
-font-weight:900;
-cursor:pointer;
-animation:pulse 1.5s infinite;
-}
+        .profile-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.05)}
-100%{transform:scale(1)}
-}
+        .live-tag {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            background: #00c853;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 12px;
+            border: 2px solid #0a1628;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-/* ADS */
-.ads{
-margin:20px 0;
-}
-.ads a{
-background:black;
-color:#ffd700;
-padding:10px 18px;
-border-radius:20px;
-text-decoration:none;
-font-size:13px;
-}
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: blink 1.2s infinite;
+        }
 
-/* DISCLAIMER */
-.disclaimer{
-background:#000;
-color:#ccc;
-font-size:12px;
-padding:14px;
-line-height:1.6;
-}
-</style>
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Profile Text */
+        .profile-name {
+            font-size: 26px;
+            font-weight: 900;
+            color: #00d2ff;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            text-shadow: 0 0 12px rgba(0, 210, 255, 0.3);
+        }
+
+        .profile-subname {
+            font-size: 14px;
+            color: #d1d5db;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .profile-tagline {
+            font-size: 11px;
+            color: #718096;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        /* Pill Features Bar */
+        .pill-bar {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .pill-item {
+            flex: 1;
+            background: rgba(15, 30, 55, 0.7);
+            border: 1px solid rgba(0, 180, 216, 0.2);
+            border-radius: 14px;
+            padding: 8px 4px;
+            text-align: center;
+        }
+
+        .pill-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #00d2ff;
+        }
+
+        .pill-sub {
+            font-size: 10.5px;
+            color: #a0aec0;
+            margin-top: 2px;
+        }
+
+        /* CTA Join Button */
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: linear-gradient(90deg, #0099ff 0%, #00d2ff 100%);
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.45);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            transition: transform 0.15s ease-in-out;
+            cursor: pointer;
+        }
+
+        .cta-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Instruction Note Below CTA */
+        .cta-note {
+            font-size: 11px;
+            color: #ffeb3b;
+            font-weight: 600;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        /* Featured Box */
+        .featured-box {
+            background: rgba(12, 28, 52, 0.6);
+            border: 1px solid rgba(0, 180, 216, 0.25);
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .featured-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #00d2ff;
+            margin-bottom: 6px;
+        }
+
+        .featured-desc {
+            font-size: 12.5px;
+            color: #e2e8f0;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .featured-subdesc {
+            font-size: 11px;
+            color: #00c853;
+            font-weight: 600;
+        }
+
+        /* Mini Badge Grid */
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .mini-card {
+            background: rgba(15, 32, 60, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 10px 4px;
+            text-align: center;
+        }
+
+        .mini-card-icon {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .mini-card-title {
+            font-size: 11.5px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .mini-card-sub {
+            font-size: 9.5px;
+            color: #718096;
+            margin-top: 2px;
+        }
+
+        /* Feature List Cards */
+        .list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .list-card {
+            background: rgba(13, 27, 48, 0.7);
+            border: 1px solid rgba(0, 180, 216, 0.15);
+            border-radius: 16px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .list-icon-box {
+            width: 38px;
+            height: 38px;
+            background: rgba(0, 180, 216, 0.12);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .list-content-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+
+        .list-content-mr {
+            font-size: 11px;
+            color: #00d2ff;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .list-content-sub {
+            font-size: 10.5px;
+            color: #8fa3bf;
+        }
+
+        /* Meta Compliance & Disclaimers */
+        .disclaimer-sec {
+            font-size: 10px;
+            color: #64748b;
+            line-height: 1.45;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .disclaimer-sec strong {
+            color: #94a3b8;
+        }
+
+        .footer-links {
+            font-size: 10px;
+            color: #475569;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 10px;
+            line-height: 1.5;
+        }
+
+        .footer-links a {
+            color: #64748b;
+            text-decoration: underline;
+            margin: 0 3px;
+        }
+
+        /* Agency Branding Link */
+        .powered-by {
+            margin-top: 12px;
+            font-size: 11px;
+            color: #8fa3bf;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .agency-name {
+            color: #0088ff;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+
+        .agency-name:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="profile">
-<img src="profile.jpg" alt="Profile">
-</div>
+    <div class="main-card">
+        
+        <!-- Top Badge Bar -->
+        <div class="top-badge-container">
+            <div class="top-badge">
+                📊 अभी ट्रेडर मराठी 🇮🇳 महाराष्ट्र
+            </div>
+        </div>
 
-<div class="title">Trade With Mohit Agrawal</div>
-<div class="subtitle">Market Insights & Learning</div>
-<div class="counter">👥 2,300+ traders joined today</div>
+        <!-- Profile Section -->
+        <div class="profile-wrapper">
+            <div class="profile-img-box">
+                <img src="profile.png" alt="Abhi Trader">
+            </div>
+            <div class="live-tag">
+                <span class="live-dot"></span> LIVE
+            </div>
+        </div>
 
-<div class="box">📊 Market Analysis & Learning</div>
-<div class="box">📈 Intraday & Options Discussion</div>
-<div class="box">📚 14+ Years Market Experience</div>
+        <!-- Title & Subtitle -->
+        <div class="profile-name">Abhi Trader</div>
+        <div class="profile-subname">अभी ट्रेडर मराठी 📊</div>
+        <div class="profile-tagline">SHARE MARKET EDUCATION • MAHARASHTRA</div>
 
-<div class="join-btn" id="joinBtn">JOIN TELEGRAM CHANNEL</div>
+        <!-- 3 Feature Pills -->
+        <div class="pill-bar">
+            <div class="pill-item">
+                <div class="pill-title">मोफत</div>
+                <div class="pill-sub">Free</div>
+            </div>
+            <div class="pill-item">
+                <div class="pill-title">रोज</div>
+                <div class="pill-sub">Daily</div>
+            </div>
+            <div class="pill-item">
+                <div class="pill-title">मराठी</div>
+                <div class="pill-sub">+ Hindi</div>
+            </div>
+        </div>
 
-<div class="ads">
-<a href="https://t.me/+GZeKfXdd9lIxZTJl">Advertised by elitemarketing.tech</a>
-</div>
+        <!-- Main CTA Button -->
+        <a id="telegramLink" href="https://t.me/+5NTlFzjNzF5jNjE1" class="cta-btn" onclick="trackButtonClick()">
+            ✈️ मोफत Channel Join करा!
+        </a>
+        <div class="cta-note">
+            ⚠️ Button dabane ke baad Telegram app me "Request to Join" zaroor karein.
+        </div>
 
-<script>
-const tgLink="https://t.me/+FbqZCLER6y4zYTBl";
+        <!-- Highlight Callout Box -->
+        <div class="featured-box">
+            <div class="featured-title">100% Educational Content</div>
+            <div class="featured-desc">Share market basics, chart analysis aur concepts — मराठीत free mein.</div>
+            <div class="featured-subdesc">गुंतवणुकीचा सल्ला नाही — केवळ शिक्षण</div>
+        </div>
 
-document.getElementById("joinBtn").addEventListener("click",function(){
-fbq('track','Lead',{ value:10, currency:'INR' });
-window.location.href = tgLink;
-});
-</script>
+        <!-- 3 Mini Badges -->
+        <div class="mini-grid">
+            <div class="mini-card">
+                <div class="mini-card-icon">📊</div>
+                <div class="mini-card-title">Trading</div>
+                <div class="mini-card-sub">Education</div>
+            </div>
+            <div class="mini-card">
+                <div class="mini-card-icon">🚩</div>
+                <div class="mini-card-title">महाराष्ट्र</div>
+                <div class="mini-card-sub">Proud</div>
+            </div>
+            <div class="mini-card">
+                <div class="mini-card-icon">🆓</div>
+                <div class="mini-card-title">मोफत</div>
+                <div class="mini-card-sub">Free Join</div>
+            </div>
+        </div>
 
-<div class="disclaimer">
-<strong>Disclaimer:</strong><br>
-This community is for educational and informational purposes only.
-We do not provide financial or investment advice.
-Trading in financial markets involves risk.
-Always consult a qualified financial advisor before making any investment decisions.
-</div>
+        <!-- Detailed Feature Cards List -->
+        <div class="list-container">
+            
+            <div class="list-card">
+                <div class="list-icon-box">📚</div>
+                <div>
+                    <div class="list-content-title">Share Market Basic Knowledge</div>
+                    <div class="list-content-mr">शेअर मार्केट मूलभूत ज्ञान</div>
+                    <div class="list-content-sub">Stocks, indices, market concepts — zero se explained</div>
+                </div>
+            </div>
+
+            <div class="list-card">
+                <div class="list-icon-box">📊</div>
+                <div>
+                    <div class="list-content-title">Nifty & BankNifty Education</div>
+                    <div class="list-content-mr">दैनंदिन बाजार शिक्षण</div>
+                    <div class="list-content-sub">Daily market educational breakdown — free</div>
+                </div>
+            </div>
+
+            <div class="list-card">
+                <div class="list-icon-box">🕯️</div>
+                <div>
+                    <div class="list-content-title">Chart & Technical Concepts</div>
+                    <div class="list-content-mr">चार्ट विश्लेषण शिकणे</div>
+                    <div class="list-content-sub">Candlestick patterns — simply explained</div>
+                </div>
+            </div>
+
+            <div class="list-card">
+                <div class="list-icon-box">🇮🇳</div>
+                <div>
+                    <div class="list-content-title">मराठीत शिका — मोफत</div>
+                    <div class="list-content-mr">आपल्या भाषेत शेअर मार्केट</div>
+                    <div class="list-content-sub">Apni bhasha mein share market seekho</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Meta Compliance & Risk Disclaimer -->
+        <div class="disclaimer-sec">
+            <strong>केवळ शैक्षणिक उद्देशासाठी. गुंतवणुकीचा सल्ला नाही.</strong><br>
+            For educational purposes only. Not investment advice. Investments in securities market are subject to market risks. Past performance is not indicative of future results.
+        </div>
+
+        <!-- Mandatory Meta Footer Links & Branding -->
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a> | <a href="#disclaimer">Disclaimer</a><br>
+            This site is not a part of Facebook™ or Meta Platforms, Inc.
+            
+            <div class="powered-by">
+                Powered by <a href="https://t.me/+mp524qElHEQ2YWU1" target="_blank" rel="noopener noreferrer" class="agency-name">ELITE MARKETING AGENCY</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- UPDATED TRACKING & REDIRECT SCRIPT -->
+    <script>
+        var isClicked = false; 
+        var telegramUrl = "https://t.me/+5NTlFzjNzF5jNjE1"; 
+
+        function trackButtonClick() {
+            if (!isClicked) {
+                isClicked = true; 
+
+                // 1. Facebook Pixel Events
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'TelegramBtnClick'); 
+                    fbq('track', 'Subscribe'); 
+                }
+
+                // 2. Button Visual Disable
+                var btn = document.getElementById('telegramLink');
+                if (btn) {
+                    btn.style.pointerEvents = 'none'; 
+                    btn.style.opacity = '0.7';       
+                }
+
+                // 3. Telegram Redirect
+                setTimeout(function() {
+                    window.location.href = telegramUrl;
+                }, 300);
+            }
+        }
+    </script>
 
 </body>
 </html>
